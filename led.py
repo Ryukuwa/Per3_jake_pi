@@ -1,12 +1,13 @@
-from gpiozero import LED
+from gpiozero import LED, Button 
 from time import sleep
 
-sunshine = LED(17)
+led = LED(17)
+button = Button(16)
 
 while True:
+    button.wait_for_press()
     print("LED on")
-    sunshine.on()
-    sleep(1)
+    led.on()
     print("LED off")
-    sunshine.off()
-    sleep(1.5)
+    led.off()
+
